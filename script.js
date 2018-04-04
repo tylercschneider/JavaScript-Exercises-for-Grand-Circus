@@ -1,5 +1,4 @@
 
-var userChoice = "no";
 var toughQuestions = ["Enter A Number!", 
 					"Do you want to play?", 
 					"Enter your word", 
@@ -40,7 +39,7 @@ function exerciseOne(){
 ///////////////
 //Excercise 2 /////////////////////////////////
 //////////////
-function wordBuilder(wordArray) {
+function wordBuilder(wordArray, userChoice) {
 	userChoice = userChoice.toLowerCase();
 
 	if(userChoice === "yes" || userChoice === "y") {
@@ -48,7 +47,7 @@ function wordBuilder(wordArray) {
 
 		wordArray.push(wordToAdd);
 		userChoice = questionAsker(3, 1);
-		wordBuilder(wordArray);
+		wordBuilder(wordArray, userChoice);
 		return wordArray;
 	}
 	else if(userChoice === "no" || userChoice === "n"){
@@ -57,7 +56,7 @@ function wordBuilder(wordArray) {
 	else{
 		console.log("I couldn't comprehend what you entered.");
 		userChoice = questionAsker(1, 1);
-		wordBuilder(wordArray);
+		wordBuilder(wordArray, userChoice);
 		return wordArray;
 	}
 }
@@ -78,8 +77,8 @@ function outputWord(wordArray) {
 
 function exerciseTwo() {
 	var wordArray = []
-	userChoice = questionAsker(1, 1);
-	wordBuilder(wordArray);
+	var userChoice = questionAsker(1, 1);
+	wordBuilder(wordArray, userChoice);
 
 	if(wordArray.length > 0) {
 		outputWord(wordArray);
@@ -108,7 +107,7 @@ function namePrinter(nameThread, userChoice) {
 }
 function exerciseThree() {
 	var nameThread = "Hello. My name is ";
-	userChoice = questionAsker(4,1);
+	var userChoice = questionAsker(4,1);
 	userChoice = userChoice.toLowerCase();
 	if(userChoice ==="yes") {
 		var name = questionAsker(5,3);
@@ -128,7 +127,7 @@ var timeOfDay = {
 		"evening": ["evening", "dinner", "chicken and rice"],
 	};
 function exerciseFour() {
-	userChoice = questionAsker(7, 4);
+	var userChoice = questionAsker(7, 4);
 	userChoice = userChoice.toLowerCase();
 
 	if(userChoice === "morning" || userChoice==="afternoon" || userChoice==="evening"){
