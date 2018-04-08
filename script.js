@@ -1,3 +1,14 @@
+/*
+function domWriter(info) {
+	var elem = document.getElementById("out");
+	var para = document.createElement("p");
+	var node = document.createTextNode(info);
+	console.log(info + "test");
+	para.appendChild(node);
+	console.log(para);
+	elem.appendChild(para);
+}
+*/
 
 var toughQuestions = ["Enter A Number!", 
 					"Do you want to play?", 
@@ -18,21 +29,27 @@ function questionAsker(q1,d1) {
 ///////////////
 //Excercise 1 /////////////////////////////////
 //////////////
-function factorialCalculator (userNumber) {
+function factorialCalculator(userNumber) {
 	var calculation = 0;
 	for (i=1; i<=userNumber; i++) {
 		calculation += i;
 	}
 	console.log(calculation);
+	//domWriter(calculation);
 }
 function exerciseOne(){
 	var chosenNumber = questionAsker(0,0);
+	var info;
 	if (!isNaN(chosenNumber)){
 		factorialCalculator(chosenNumber);
-		console.log("I've done my job. That should be the right answer. Click on someone else.");
+		info = "I've done my job. That should be the right answer. Click on someone else.";
+		console.log(info);
+		//domWriter(info);
 	}	
 	else {
-		console.log("Click the button again and enter a number. Not a word or whatever you just put in that window.");
+		info = "Click the button again and enter a number. Not a word or whatever you just put in that window.";
+		console.log(info);
+		//domWriter(info);
 	}
 }
 
@@ -54,7 +71,9 @@ function wordBuilder(wordArray, userChoice) {
 		return
 	}
 	else{
-		console.log("I couldn't comprehend what you entered.");
+		info = "I couldn't comprehend what you entered.";
+		console.log(info);
+		//domWriter(info);
 		userChoice = questionAsker(1, 1);
 		wordBuilder(wordArray, userChoice);
 		return wordArray;
@@ -78,15 +97,20 @@ function outputWord(wordArray) {
 function exerciseTwo() {
 	var wordArray = []
 	var userChoice = questionAsker(1, 1);
+	var info;
 	wordBuilder(wordArray, userChoice);
 
 	if(wordArray.length > 0) {
 		outputWord(wordArray);
-		console.log("That was easy =)")
+		info = "That was easy =)";
+		console.log(info);
+		//domWriter(info);
 	}
 
 	else {
-		console.log("Good luck with life. :|");
+		info = "Good luck with life. :|";
+		console.log(info);
+		//domWriter(info);
 	}
 }
 
@@ -97,6 +121,7 @@ function namePrinter(nameThread, userChoice) {
 	
 	while(userChoice === "yes" || userChoice === "y") {
 		console.log(nameThread);
+		//domWriter(nameThread);
 		nameThread += "!";
 		userChoice = questionAsker(6,1);
 		userChoice = userChoice.toLowerCase();
@@ -108,13 +133,16 @@ function namePrinter(nameThread, userChoice) {
 function exerciseThree() {
 	var nameThread = "Hello. My name is ";
 	var userChoice = questionAsker(4,1);
+	var info;
 	userChoice = userChoice.toLowerCase();
 	if(userChoice ==="yes") {
 		var name = questionAsker(5,3);
 		nameThread += name;
 		namePrinter(nameThread, userChoice);
 	}
-	console.log("cool. have a nice day. I'm done.")
+	info = "cool. have a nice day. I'm done.";
+	console.log(info);
+	//domWriter(info);
 
 }
 
@@ -128,13 +156,18 @@ var timeOfDay = {
 	};
 function exerciseFour() {
 	var userChoice = questionAsker(7, 4);
+	var info;
 	userChoice = userChoice.toLowerCase();
 
 	if(userChoice === "morning" || userChoice==="afternoon" || userChoice==="evening"){
-		console.log("Since it is " + timeOfDay[userChoice][0] + ", you should be eating " + timeOfDay[userChoice][1] + ". We suggest " + timeOfDay[userChoice][2] + ".");
+		info = "Since it is " + timeOfDay[userChoice][0] + ", you should be eating " + timeOfDay[userChoice][1] + ". We suggest " + timeOfDay[userChoice][2] + ".";
+		console.log(info);
+		//domWriter(info);
 	}
 	else{
-		console.log("No idea what you chose... Click the button to try again. This is the real world bud...spelling matters.")
+		info = "No idea what you chose... Click the button to try again. This is the real world bud...spelling matters.";
+		console.log(info);
+		//domWriter(info);
 	}
 }
 ////////////////
@@ -144,3 +177,4 @@ document.getElementById("ex1").addEventListener("click", exerciseOne);
 document.getElementById("ex2").addEventListener("click", exerciseTwo);
 document.getElementById("ex3").addEventListener("click", exerciseThree);
 document.getElementById("ex4").addEventListener("click", exerciseFour);
+
